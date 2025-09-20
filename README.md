@@ -10,7 +10,7 @@ Features
 - Optional: Login, Search, Filter, Dark/Light mode, API endpoints
 
 Setup
-1. Clone repo: `git clone https://github.com/Jeyapragash1/jepsoft-todo-web-jeyapragash.git`
+1. Clone repo: `git clone https://github.com/jeyapragash1/Internship_Test.git`
 2. Install: (example) `npm install` or `composer install`
 3. Create `.env` from `.env.example` and set DB credentials
 4. Run migrations: `npm run migrate` or `php artisan migrate` (adjust to your project)
@@ -25,4 +25,5 @@ Demo
 - Screenshots in `/screenshots`
 
 Contact
-Jeyapragash Kisho — kishojeyapragash15@gmail.com — +94 76 303 6242
+Jeyapragash Kisho — kishojeyapragash@gmail.com — +94 76 303 6242
+
