@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../api';
 import { motion, AnimatePresence } from 'framer-motion';
-import toast from 'react-hot-toast'; // <--- Import toast
+import toast from 'react-hot-toast';
 
 function TodoForm({ fetchTodos }) {
   const [newTodoTitle, setNewTodoTitle] = useState('');
@@ -34,12 +34,12 @@ function TodoForm({ fetchTodos }) {
       setNewTodoTitle('');
       setNewTodoDescription('');
       fetchTodos();
-      toast.success('Task added successfully!'); // <--- Toast
+      toast.success('Task added successfully!'); 
     } catch (error) {
       console.error('Error adding todo:', error);
       const errorMessage = error.response?.data?.errors ? Object.values(error.response.data.errors).flat().join(' ') : (error.response?.data?.message || 'Failed to add task. Please try again.');
-      setSubmitError(errorMessage); // Display specific backend validation errors
-      toast.error(errorMessage); // <--- Toast
+      setSubmitError(errorMessage);
+      toast.error(errorMessage); 
     } finally {
       setIsSubmitting(false);
     }

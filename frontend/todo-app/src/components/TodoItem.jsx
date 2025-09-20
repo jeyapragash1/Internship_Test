@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../api';
 import { motion, AnimatePresence } from 'framer-motion';
 import ConfirmationModal from './ConfirmationModal.jsx';
-import toast from 'react-hot-toast'; // <--- Import toast
+import toast from 'react-hot-toast';
 
 function TodoItem({ todo, fetchTodos }) {
   const [editingTodoId, setEditingTodoId] = useState(null);
@@ -17,10 +17,10 @@ function TodoItem({ todo, fetchTodos }) {
     try {
       await api.delete(`/todos/${id}`);
       fetchTodos();
-      toast.success(`Task "${todo.title}" deleted.`); // <--- Toast
+      toast.success(`Task "${todo.title}" deleted.`); 
     } catch (error) {
       console.error('Error deleting todo:', error);
-      toast.error('Failed to delete task.'); // <--- Toast
+      toast.error('Failed to delete task.'); 
     } finally {
       setIsDeleting(false);
       setShowDeleteConfirm(false);
@@ -35,10 +35,10 @@ function TodoItem({ todo, fetchTodos }) {
         completed: !todoItem.completed,
       });
       fetchTodos();
-      toast.success(`Task "${todoItem.title}" marked as ${!todoItem.completed ? 'completed' : 'active'}.`); // <--- Toast
+      toast.success(`Task "${todoItem.title}" marked as ${!todoItem.completed ? 'completed' : 'active'}.`); 
     } catch (error) {
       console.error('Error toggling todo status:', error);
-      toast.error('Failed to update task status.'); // <--- Toast
+      toast.error('Failed to update task status.'); 
     } finally {
       setIsUpdating(false);
     }
@@ -59,10 +59,10 @@ function TodoItem({ todo, fetchTodos }) {
       });
       setEditingTodoId(null);
       fetchTodos();
-      toast.success(`Task "${editTodoTitle}" updated successfully.`); // <--- Toast
+      toast.success(`Task "${editTodoTitle}" updated successfully.`); 
     } catch (error) {
       console.error('Error saving todo:', error);
-      toast.error('Failed to save task.'); // <--- Toast
+      toast.error('Failed to save task.'); 
     } finally {
       setIsUpdating(false);
     }

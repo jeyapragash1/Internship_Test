@@ -45,7 +45,7 @@ function LoginPage() {
     }
 
     setIsSubmitting(true);
-    const result = await login(email, password); // This is your simulated login
+    const result = await login(email, password); 
     if (!result.success) {
       setSubmitError(result.message);
     }

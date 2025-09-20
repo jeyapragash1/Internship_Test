@@ -5,7 +5,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
-import { Toaster } from 'react-hot-toast'; // <--- Import Toaster
+import { Toaster } from 'react-hot-toast'; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvider>
         <AuthProvider>
           <App />
-          <Toaster /> {/* <--- Add Toaster here */}
+          <Toaster /> 
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>

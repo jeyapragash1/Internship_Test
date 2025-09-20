@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response; // Import Response class
+use Illuminate\Http\Response; 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -45,7 +45,7 @@ class AuthController extends Controller
             'message' => 'User registered successfully',
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'user' => $user->only(['id', 'name', 'email']), // Return basic user info
+            'user' => $user->only(['id', 'name', 'email']), 
         ], Response::HTTP_CREATED); // 201
     }
 
@@ -69,7 +69,7 @@ class AuthController extends Controller
             ], Response::HTTP_UNPROCESSABLE_ENTITY); // 422
         }
 
-        // Attempt to authenticate using the 'web' guard which typically uses email/password
+      
         if (!Auth::attempt($request->only('email', 'password'))) {
             return response()->json([
                 'message' => 'Invalid credentials'
@@ -90,7 +90,7 @@ class AuthController extends Controller
             'message' => 'Logged in successfully',
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'user' => $user->only(['id', 'name', 'email']), // Return basic user info
+            'user' => $user->only(['id', 'name', 'email']), 
         ], Response::HTTP_OK); // 200
     }
 

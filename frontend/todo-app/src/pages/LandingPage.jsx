@@ -11,7 +11,7 @@ function LandingPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Stagger animations for child elements
+        staggerChildren: 0.2,
         delayChildren: 0.3
       }
     }
@@ -78,7 +78,7 @@ function LandingPage() {
         )}
       </motion.div>
 
-      {/* Feature highlights with animations */}
+      
       <motion.div
         className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
         variants={containerVariants}

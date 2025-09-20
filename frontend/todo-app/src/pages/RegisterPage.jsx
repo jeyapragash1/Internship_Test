@@ -8,7 +8,6 @@ function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -64,7 +63,7 @@ function RegisterPage() {
       return;
     }
 
-    // --- CONSOLE LOGS FOR DEBUGGING ---
+    
     console.log('--- Attempting Registration ---');
     console.log('Name:', name);
     console.log('Email:', email);
@@ -74,7 +73,7 @@ function RegisterPage() {
 
 
     setIsSubmitting(true);
-    // Pass password and confirmPassword as separate arguments
+    
     const result = await register(name, email, password, confirmPassword);
     if (!result.success) {
       setSubmitError(result.message);

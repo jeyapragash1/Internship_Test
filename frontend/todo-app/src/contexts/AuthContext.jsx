@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import toast from 'react-hot-toast'; // <--- Import toast
+import toast from 'react-hot-toast';
 
 const AuthContext = createContext();
 
@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
             localStorage.removeItem('user');
             setIsAuthenticated(false);
             setUser(null);
-            toast.error('Session expired. Please log in again.'); // <--- Toast
+            toast.error('Session expired. Please log in again.');
           }
         } catch (error) {
           console.error('Auth check failed:', error);
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
           localStorage.removeItem('user');
           setIsAuthenticated(false);
           setUser(null);
-          toast.error('Could not verify session. Please log in again.'); // <--- Toast
+          toast.error('Could not verify session. Please log in again.');
         }
       }
       setLoading(false);
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
       return true;
     } catch (error) {
       console.error('Failed to get CSRF cookie:', error.response?.data || error.message);
-      toast.error('Connection issue. Please refresh and try again.'); // <--- Toast
+      toast.error('Connection issue. Please refresh and try again.');
       return false;
     }
   };
@@ -74,12 +74,12 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       setUser(userData);
       navigate('/todos');
-      toast.success(`Welcome back, ${userData.name}!`); // <--- Toast
+      toast.success(`Welcome back, ${userData.name}!`);
       return { success: true, user: userData };
     } catch (error) {
       console.error('Login failed:', error.response?.data || error.message);
       const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
-      toast.error(errorMessage); // <--- Toast
+      toast.error(errorMessage);
       return {
         success: false,
         message: errorMessage
@@ -95,7 +95,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       setUser(null);
       navigate('/');
-      toast.success('Logged out successfully.'); // <--- Toast
+      toast.success('Logged out successfully.');
       return { success: true, message: 'Logged out successfully.' };
     } catch (error) {
       console.error('Logout failed:', error.response?.data || error.message);
@@ -104,7 +104,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(false);
       setUser(null);
       navigate('/');
-      toast.error('Logout failed, but you have been logged out locally.'); // <--- Toast
+      toast.error('Logout failed, but you have been logged out locally.');
       return { success: false, message: 'Logout failed, but you have been logged out locally.' };
     }
   };
@@ -124,12 +124,12 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       setUser(userData);
       navigate('/todos');
-      toast.success(`Welcome, ${userData.name}! Your account is ready.`); // <--- Toast
+      toast.success(`Welcome, ${userData.name}! Your account is ready.`);
       return { success: true, user: userData };
     } catch (error) {
       console.error('Registration failed:', error.response?.data || error.message);
       const errorMessage = error.response?.data?.errors ? Object.values(error.response.data.errors).flat().join(' ') : (error.response?.data?.message || 'Registration failed.');
-      toast.error(errorMessage); // <--- Toast
+      toast.error(errorMessage);
       return {
         success: false,
         message: errorMessage

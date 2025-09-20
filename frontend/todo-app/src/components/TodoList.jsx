@@ -2,7 +2,7 @@ import React from 'react';
 import TodoItem from './TodoItem.jsx';
 import { motion, AnimatePresence } from 'framer-motion';
 
-function TodoList({ todos, fetchTodos, loading }) { // Accept loading prop
+function TodoList({ todos, fetchTodos, loading }) {
   const listVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -16,7 +16,7 @@ function TodoList({ todos, fetchTodos, loading }) { // Accept loading prop
 
   const skeletonVariants = {
     animation: {
-      backgroundColor: ["#f3f4f6", "#e5e7eb", "#f3f4f6"], // light gray to darker gray
+      backgroundColor: ["#f3f4f6", "#e5e7eb", "#f3f4f6"],
       transition: {
         duration: 1.5,
         repeat: Infinity,
@@ -35,7 +35,7 @@ function TodoList({ todos, fetchTodos, loading }) { // Accept loading prop
       <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-5 border-b pb-3 border-gray-200 dark:border-gray-700">Your Tasks</h2>
       <ul className="space-y-4">
         <AnimatePresence mode="wait">
-          {loading ? ( // Show skeleton loader if loading
+          {loading ? (
             Array.from({ length: 3 }).map((_, index) => (
               <motion.li
                 key={`skeleton-${index}`}

@@ -24,7 +24,7 @@ function App() {
           <Link to="/" className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-500 transition-colors duration-200">
             TodoApp
           </Link>
-          {isAuthenticated && ( // Show Todos link only if authenticated
+          {isAuthenticated && ( 
             <Link to="/todos" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">
               My Todos
             </Link>
@@ -56,7 +56,7 @@ function App() {
           <AnimatePresence mode="wait">
             <motion.button
               onClick={toggleTheme}
-              key={theme} // Key prop to trigger re-animation on theme change
+              key={theme} 
               initial={{ rotate: -90, scale: 0 }}
               animate={{ rotate: 0, scale: 1 }}
               exit={{ rotate: 90, scale: 0 }}
@@ -100,16 +100,16 @@ function App() {
         </div>
       </nav>
 
-      <main className="container mx-auto px-4 py-8 pt-20"> {/* pt-20 to push content below fixed navbar */}
+      <main className="container mx-auto px-4 py-8 pt-20"> 
         <Routes>
-          <Route path="/" element={<LandingPage />} /> {/* New Landing Page as default */}
+          <Route path="/" element={<LandingPage />} /> 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          {/* Protected route for Todos */}
+          
           {isAuthenticated ? (
             <Route path="/todos" element={<TodoPage />} />
           ) : (
-            <Route path="/todos" element={<LoginPage />} /> // Redirect to login if not authenticated
+            <Route path="/todos" element={<LoginPage />} /> 
           )}
         </Routes>
       </main>

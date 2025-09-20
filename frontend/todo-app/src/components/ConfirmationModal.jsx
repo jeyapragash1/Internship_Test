@@ -68,5 +68,4 @@ function ConfirmationModal({ show, title, message, onConfirm, onCancel }) {
     </AnimatePresence>
   );
 }
-
 export default ConfirmationModal;

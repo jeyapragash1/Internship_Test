@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../api';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext.jsx';
-import toast from 'react-hot-toast'; // <--- Import toast
-
+import toast from 'react-hot-toast'; 
 import TodoForm from '../components/TodoForm.jsx';
 import FilterSearch from '../components/FilterSearch.jsx';
 import TodoList from '../components/TodoList.jsx';
@@ -25,10 +24,10 @@ function TodoPage() {
     try {
       const response = await api.get('/todos');
       setTodos(response.data);
-      toast.success('Todos loaded successfully!'); // <--- Toast
+      toast.success('Todos loaded successfully!'); 
     } catch (error) {
       console.error('Error fetching todos:', error);
-      toast.error('Failed to load todos. Please try again.'); // <--- Toast
+      toast.error('Failed to load todos. Please try again.'); 
     } finally {
       setLoading(false);
     }
@@ -78,7 +77,7 @@ function TodoPage() {
       initial="hidden"
       animate="visible"
     >
-      {/* Welcome Card */}
+      
       <motion.div
         variants={sectionVariants}
         className="bg-gradient-to-r from-blue-500 to-indigo-600 dark:from-blue-700 dark:to-indigo-800 text-white p-8 rounded-xl shadow-lg relative overflow-hidden"
@@ -88,7 +87,7 @@ function TodoPage() {
         <p className="text-xl relative z-10">Here's your personal productivity dashboard.</p>
       </motion.div>
 
-      {/* Dashboard Stats */}
+     
       <DashboardStats
         totalTodos={totalTodos}
         completedTodos={completedTodos}
@@ -96,12 +95,12 @@ function TodoPage() {
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column: Todo Form */}
+        
         <motion.div variants={sectionVariants} className="lg:col-span-1">
           <TodoForm fetchTodos={fetchTodos} />
         </motion.div>
 
-        {/* Right Column: Filter/Search and Todo List */}
+        
         <motion.div variants={sectionVariants} className="lg:col-span-2">
           <FilterSearch
             filter={filter}
