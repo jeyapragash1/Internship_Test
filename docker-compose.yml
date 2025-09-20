@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  mysql_db:
+    image: mysql:8.0
+    container_name: todo_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tododb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: todo_phpmyadmin
+    environment:
+      PMA_HOST: mysql_db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+      UPLOAD_LIMIT: 32M
+      MEMORY_LIMIT: 32M
+    ports:
+      - "8081:80"
+    networks:
+      - app_network
+    depends_on:
+      - mysql_db
+
+volumes:
+  mysql_data:
+
+networks:
+  app_network:
+    driver: bridge
